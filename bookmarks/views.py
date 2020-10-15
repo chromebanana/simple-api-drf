@@ -15,17 +15,11 @@ jwt_encode_handler = api_settings.JWT_ENCODE_HANDLER
 
 
 class ListBookmarkView(generics.ListAPIView):
-    """
-    Provides a get method handler.
-    """
     queryset = Bookmark.objects.all()
     serializer_class = BookmarkSerializer
     permission_classes = (permissions.IsAuthenticated,)
 
 class RegisterUsersView(generics.CreateAPIView):
-    """
-    POST auth/register/
-    """
     permission_classes = (permissions.AllowAny,)
 
     def post(self, request, *args, **kwargs):
@@ -45,13 +39,7 @@ class RegisterUsersView(generics.CreateAPIView):
         return Response(status=status.HTTP_201_CREATED)
 
 class LoginView(generics.CreateAPIView):
-    """
-    POST auth/login/
-    """
-    # This permission class will overide the global permission
-    # class setting
     permission_classes = (permissions.AllowAny,)
-
     queryset = User.objects.all()
 
     def post(self, request, *args, **kwargs):
@@ -59,11 +47,8 @@ class LoginView(generics.CreateAPIView):
         password = request.data.get("password", "")
         user = authenticate(request, username=username, password=password)
         if user is not None:
-            # login saves the user’s ID in the session,
-            # using Django’s session framework.
             login(request, user)
             serializer = TokenSerializer(data={
-                # using drf jwt utility functions to generate a token
                 "token": jwt_encode_handler(
                     jwt_payload_handler(user)
                 )})

@@ -1,6 +1,6 @@
 # Bookmarks API
 
-This is a simple API created to practise using the Django Rest framework with JWT authentication.
+This is a simple API created to practice using the Django Rest framework with JWT authentication.
 
 - register, login a user, authenticate
 - view saved bookmarks (once authenticated)
