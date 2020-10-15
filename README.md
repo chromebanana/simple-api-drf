@@ -15,7 +15,7 @@ Create an environment according to dependencies in the Pipfile. Then do
 ```
 
 ## Note
-Database is note being tracked. If you are going to deploy this you may need to remove db.sqlite3 and migrations from .gitignore
+Database is not being tracked. If you are going to deploy this you may need to remove db.sqlite3 and migrations from .gitignore
 
 ## Testing
 
