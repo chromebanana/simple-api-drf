@@ -22,3 +22,5 @@ Database is not being tracked. If you are going to deploy this you may need to r
 ```sh 
     $ python manage.py test
 ```
+## Thanks
+Thank you @kasulani for this helpful [tutorial](https://medium.com/backticks-tildes/lets-build-an-api-with-django-rest-framework-32fcf40231e5)
